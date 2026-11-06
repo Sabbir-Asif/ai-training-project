@@ -1,0 +1,32 @@
+{
+  "name": "devpulse",
+  "version": "0.0.0",
+  "private": true,
+  "description": "DevPulse monorepo",
+  "packageManager": "pnpm@12.18.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @devpulse/api --filter @devpulse/web dev",
+    "lint": "pnpm -r --if-present lint",
+    "typecheck": "pnpm --filter @devpulse/shared build && pnpm -r --if-present typecheck",
+    "test": "pnpm -r --if-present test",
+    "build": "pnpm --filter @devpulse/shared build && pnpm -r --if-present --filter '!@devpulse/shared' build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "eslint": "^9.39.0",
+    "@eslint/js": "^9.39.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "prettier": "^3.9.10",
+    "typescript": "~5.9.0",
+    "typescript-eslint": "^8.72.1"
+  }
+}
