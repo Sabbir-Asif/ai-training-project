@@ -16,6 +16,10 @@ Before opening a PR, `pnpm lint && pnpm typecheck && pnpm test && pnpm build` mu
 
 ## Workflow
 
+- **First job on any issue: move its board card to "In Progress"** (`scripts/set-issue-status.sh N "In Progress"`),
+  before reading code or editing. The hook below does this automatically as a safety net.
+- Vague ticket? Run the `refine-ticket` skill first (`.claude/skills/refine-ticket`) to make it AI-ready.
+
 - One issue = one branch `feat/T##-slug` = one PR with `Closes #N` in the body.
 - Commits follow Conventional Commits (enforced by commitlint via Husky). Pre-commit runs lint-staged.
 - Board: the "DevPulse" GitHub Project (#10). A Claude Code hook (`.claude/settings.json` →
